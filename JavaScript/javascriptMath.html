@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+      function zer_negativity(arr) {
+        for(let i in arr) {
+          if (arr[i] < 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+      function iseven(num) {
+        if(num % 2 == 0){
+          return true;
+        }
+        else {
+          return false;
+        }
+      }
+      function how_many_even(arr) {
+        var count = 0;
+        for(let i in arr) {
+          if(iseven(arr[i]) == true) {
+            count += 1;
+          }
+        }
+        return count
+      }
+      function create_dummy_array(n) {
+         let arr = [];
+         for(let i=1; i<=n; i++) {
+           arr.push(Math.floor(Math.random()*10))
+         }
+         return arr
+      }
+      function random_choice(arr) {
+        var i = Math.floor(Math.random()*arr.length)
+        return arr[i]
+      }
+    </script>
+  </head>
+</html>

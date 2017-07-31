@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    // Part I
+    // Create a function called star_string() that takes a number and returns a string of that many *.
+      function star_string(num) {
+        let stars = "";
+        for(let i=1; i<=num; i++) {
+          stars += "*"
+        }
+        return stars;
+      }
+      // Part II
+      // Create a function called draw_stars() that takes an array of numbers and prints out *.
+      function draw_stars(arr) {
+        for(let i in arr) {
+          let stars = ""
+          for(let j=1; j<=arr[i]; j++) {
+            stars += "*"
+          }
+          console.log(stars)
+        }
+      }
+      // Part III
+      // Modify the function above. Allow an array containing integers and strings to be passed to the draw_stars() function. When a string is passed, instead of displaying *, display the first letter of the string according to the example below. You may use the .lower() string method for this part.
+      function draw_stars2(arr) {
+        for(let i in arr) {
+          let stars = ""
+          if(typeof arr[i] == "string") {
+            for(let j=1; j<=arr[i].length; j++) {
+              stars += arr[i][0].toLowerCase();
+            }
+          }
+          else if(typeof arr[i] == "number"){
+            for(let j=1; j<=arr[i]; j++) {
+              stars += "*"
+            }
+          }
+          console.log(stars)
+        }
+      }
+      draw_stars2([1,2,"hello",4,"Jimmy",5])
+    </script>
+  </head>
+</html>
