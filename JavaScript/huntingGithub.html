@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(
+        function(){
+          $('#username').submit(function(){
+            if($("input[name='username']").val()){
+              $.get("https://api.github.com/users/"+($("input[name='username']").val()), displayName);
+              event.preventDefault();
+            }
+          });
+          function displayName(data) {
+            if(data.name) {
+              document.getElementById('name').innerHTML = data.name;
+            }
+            else {
+              document.getElementById('name').innerHTML = "It's a secret!";
+            }
+          }
+          $('#reset').click(function(){
+            document.getElementById('name').innerHTML = "";
+            $('#username')[0].reset();
+          })
+        })
+    </script>
+    <style type="text/css">
+    #findName {
+      width: 70%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="findName">
+        <h1>What is this Github user's name?</h1>
+        <form id="username">
+          <input type="text" name="username" placeholder="username">
+          <input type="submit" value="Hunt for name!">
+        </form>
+        <p>Their name is: <span id="name"></span></p>
+      <button id="reset">Reset</button>
+    </div>
+  </body>
+</html>
