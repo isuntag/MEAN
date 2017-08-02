@@ -4,8 +4,21 @@
     <meta charset="utf-8">
     <title></title>
     <script type="text/javascript">
-    function $Dojo() {
-      
+    function $Dojo(id) {
+      // this.myID will get the element that is given to the $Dojo function
+      this.myID = document.getElementByID(id);
+      // this.click calls a function that does something (callback)
+      this.click = function(callback) {
+        // when this.click is called add an event listener of to the element so when it's clicked it will do the callback function
+        this.myID.addEventListener("click", callback);
+      }
+      // this.hover calls a function that will do a function with callbacks for hoverin and hoverout functions
+      this.hover = function(hoverin, hoverout) {
+        // add an event listener to the id to do hoverin on mouseover
+        this.myID.addEventListener("mouseover", hoverin);
+        // add an event listener to the id to do hoverout on mouseout
+        this.myID.addEventListener("mouseout", hoverout);
+      }
     }
     $Dojo("someIdForSomeButton").click(function() { console.log("The button was clicked!") });
     $Dojo("someOtherIdForSomeOtherButton").hover(function() { console.log("The button was hovered on!") });
