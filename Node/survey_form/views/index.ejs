@@ -3,21 +3,37 @@
   <head>
     <meta charset="utf-8">
     <title><%= title %></title>
+    <link rel="stylesheet" href="/index.css">
   </head>
   <body>
-    <form action="/result" method="post">
-      Your Name: <input type="text" name="name" placeholder="name"><br>
-      Dojo Location: <select name="location">
-        <option>California somewhere</option>
-        <option>Washington, DC</option>
-      </select><br>
-      Favorite Language: <select name="lang">
-        <option>Javascript</option>
-        <option>Python</option>
-      </select><br>
-      Comment (optional):<br>
-      <textarea name="comment"></textarea><br>
-      <input type="submit" value="Submit">
-    </form>
+    <div id = "wrapper">
+      <h1>Survey Form</h1>
+      <div id="content">
+        <form action="/result" method="post">
+          <div class="forminput">
+            Your Name: <input type="text" name="name" placeholder="name">
+          </div>
+          <div class="forminput">
+            Dojo Location: <select name="location">
+              <option>California somewhere</option>
+              <option>Washington, DC</option>
+            </select>
+          </div>
+          <div class="forminput">
+            Favorite Language: <select name="lang">
+              <option>Javascript</option>
+              <option>Python</option>
+            </select>
+          </div>
+          <div class="formcomment">
+            Comment (optional):<br>
+            <textarea name="comment"></textarea>
+          </div>
+          <div class="formsubmit">
+            <input type="submit" value="Submit">
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

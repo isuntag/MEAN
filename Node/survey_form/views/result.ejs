@@ -3,13 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>Result</title>
+    <link rel="stylesheet" href="/result.css">
   </head>
   <body>
-    <h1>Submitted Information</h1>
-    Name: <%= name %><br>
-    Dojo Location: <%= location %><br>
-    Favorite Language: <%= lang %><br>
-    Comment: <%= comment %><br>
-    <a href="/"><button>Go Back</button></a>
+    <div id = "wrapper">
+      <h1>Submitted Information</h1>
+      <div id = "content">
+        <div class="output">
+          <span class="bold">Name:</span> <%= name %>
+        </div>
+        <div class="output">
+          <span class="bold">Dojo Location:</span> <%= location %>
+        </div>
+        <div class="output">
+          <span class="bold">Favorite Language:</span> <%= lang %>
+        </div>
+        <div class="output">
+          <span class="bold">Comment:</span> <%= comment %>
+        </div>
+        <div id="goback">
+          <a href="/"><button>Go Back</button></a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
