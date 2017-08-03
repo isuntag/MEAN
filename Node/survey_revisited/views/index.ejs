@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+      $(document).ready(function (){
+        var socket  = io.connect();
+        $('form').submit(function(e){
+          e.preventDefault();
+          socket.emit( "form_submitted", {
+            name: $('#name').val(),
+            location: $('#location').val(),
+            lang: $('#lang').val(),
+            comment: $('#comment').val()
+          });
+        });
+        socket.on('server_response', function(data){
+          $('#submitted').html(`<div id="response"><span class="bold">You emitted the following information to the server:</span><br> <span class="bold">Name:</span> ${data.response.name}<br><span class="bold">Dojo Location:</span> ${data.response.location}<br><span class="bold">Favorite Language:</span> ${data.response.lang}<br><span class="bold">Comment:</span> ${data.response.comment} <br><span class="bold">Random number:</span> <span class="num"></span>`);
+        });
+        socket.on('random_number', function(data){
+          $('.num').html(data.response);
+        })
+      });
+    </script>
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body>
+    <div id = "container">
+      <h1>Survey Form</h1>
+      <div id="content">
+        <div id="submitted">
+        </div>
+        <form action="">
+          <div class="forminput">
+            Your Name: <input type="text" name="name" id="name" placeholder="name">
+          </div>
+          <div class="forminput">
+            Dojo Location: <select name="location" id="location">
+              <option>California somewhere</option>
+              <option>Washington, DC</option>
+            </select>
+          </div>
+          <div class="forminput">
+            Favorite Language: <select name="lang" id="lang">
+              <option>Javascript</option>
+              <option>Python</option>
+            </select>
+          </div>
+          <div class="formcomment">
+            Comment (optional):<br>
+            <textarea name="comment" id="comment"></textarea>
+          </div>
+          <div class="formsubmit">
+            <input type="submit" value="Submit">
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

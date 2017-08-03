@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+body {
+  font: 100 12pt "Helvetica Neue", sans-serif;
+  color: floralwhite;
+  background-color: floralwhite;
+}
+#container {
+  width: 50%;
+  margin: 50px auto 0 auto;
+  text-align: center;
+}
+#content {
+  background-color: lightcoral;
+  padding: 20px 50px;
+}
+h1 {
+  color: lightcoral;
+  font-size: 60pt;
+}
+.forminput, .formsubmit, button {
+  padding: 3px;
+  margin: 2px;
+}
+.formsubmit {
+  display: inline-block;
+}
+input {
+  padding: 3px;
+  background-color: white;
+}
+input[type=submit], button {
+  background-color:white;
+  color: lightcoral;
+  font-size: 12pt;
+}
+#response {
+  margin: 2px auto 50px auto;
+  padding: 3px;
+  line-height: 18pt;
+}
+span.bold {
+  font-weight: 300;
+  font-size: 14pt;
+  color: white;
+}
+span.num {
+  background-color: white;
+  color: lightcoral;
+  padding: 5px;
+  margin-top: 10px;
+}
+textarea {
+  background-color: white;
+  margin-top: 2px;
+  width: 75%;
+  padding: 3px;
+}
