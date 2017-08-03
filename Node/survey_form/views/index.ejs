@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+  </head>
+  <body>
+    <form action="/result" method="post">
+      Your Name: <input type="text" name="name" placeholder="name"><br>
+      Dojo Location: <select name="location">
+        <option>California somewhere</option>
+        <option>Washington, DC</option>
+      </select><br>
+      Favorite Language: <select name="lang">
+        <option>Javascript</option>
+        <option>Python</option>
+      </select><br>
+      Comment (optional):<br>
+      <textarea name="comment"></textarea><br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
