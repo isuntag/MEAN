@@ -44,7 +44,6 @@ input[type=submit], button {
 #response {
   margin: 2px auto 50px auto;
   padding: 3px;
-  line-height: 18pt;
 }
 span.bold {
   font-weight: 300;
@@ -54,8 +53,7 @@ span.bold {
 span.num {
   background-color: white;
   color: lightcoral;
-  padding: 5px;
-  margin-top: 10px;
+  padding: 0 5px;
 }
 textarea {
   background-color: white;
