@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Epic Button Game</title>
+    <link rel="stylesheet" href="/index.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+      $(document).ready(function() {
+        var socket = io.connect();
+        // the client is listening for newuser and when it hears it sets the html of #count to the current count
+        socket.on('newuser', function(data) {
+          $('#count').html(`The button has been clicked <span class="num">${data.count}</span> time(s)!`);
+        });
+        // when #add is clicked the client emits button_clicked
+        $('#add').on('click', function() {
+          socket.emit('button_clicked');
+        });
+        // the client is listening for count_add and when it hears it updates the html of #count is updated to reflect the count change
+        socket.on('count_add', function(data){
+          $('#count').html(`The button has been clicked <span class="num">${data.count}</span> time(s)!`);
+        });
+        // when #reset is clicked the client emits reset
+        $('#reset').on('click', function() {
+          socket.emit('reset');
+        });
+        // the client is listening for reset_count and when it hears it updates the html of #count is updated to reflect the count change
+        socket.on('reset_count', function(data) {
+          $('#count').html(`The button has been clicked <span class="num">${data.count}</span> time(s)!`);
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Epic Button Game</h1>
+      <div id="content">
+        <div id="count"></div>
+        Push the button to update the count!<br>
+        <button id="add">Push the epic button</button><br>
+        <button id="reset">Reset count</button>
+      </div>
+    </div>
+  </body>
+</html>

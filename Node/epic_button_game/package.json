@@ -1,0 +1,18 @@
+{
+  "name": "epic_button_game",
+  "version": "1.0.0",
+  "description": "The Epic Button Game assignment for Coding Dojo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Isaac Suntag",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.3",
+    "express-session": "^1.15.5",
+    "socket.io": "^2.0.3"
+  }
+}

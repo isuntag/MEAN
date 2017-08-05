@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+body {
+  font: 100 10pt "Helvetica Neue", sans-serif;
+  color: floralwhite;
+  background-color: floralwhite;
+}
+#container {
+  width: 50%;
+  margin: 50px auto 0 auto;
+  text-align: center;
+}
+#content {
+  background-color: lightcoral;
+  padding: 20px 50px;
+}
+h1 {
+  color: lightcoral;
+  font-size: 60pt;
+}
+button {
+  padding: 3px;
+  margin: 2px;
+  background-color:white;
+  color: lightcoral;
+  font-size: 12pt;
+}
+#count {
+  margin-bottom: 10px;
+  padding: 3px 0;
+  font-size: 16pt;
+}
+span.num {
+  background-color: white;
+  color: lightcoral;
+  padding: 0 5px;
+}
