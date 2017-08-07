@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quoting Dojo</title>
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body>
+    <div id = "wrapper">
+      <h1>Quotes</h1>
+      <div id="content">
+        <% if(quotes.length > 0) { %>
+            <% for(let i in quotes){ %>
+                <div class="quote">
+                    <h2>"<%= quotes[i].quote %>"</h2> <div class="right">-<%= quotes[i].name %> on <%= moment(quotes[i].createdAt).format("dddd, MMMM Do YYYY, h:mm a") %></div>
+                </div>
+            <% } %>
+        <% } %>
+        <a href="/"><button>Go Back</button></a>
+      </div>
+    </div>
+  </body>
+</html>

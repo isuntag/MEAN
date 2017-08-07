@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Basic Mongoose App</title>
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body>
+    <div id = "wrapper">
+      <h1>Survey Form</h1>
+      <div id="content">
+        <form action="/users" method="post">
+          <div class="forminput">
+            Your Name: <input type="text" name="name" placeholder="name">
+          </div>
+          <div class="forminput">
+            Your Age: <input type="number" name="age" placeholder="age">
+          </div>
+          <div class="formsubmit">
+            <input type="submit" value="Submit">
+          </div>
+        </form>
+        <div id="users">
+          <% for(user in users){ %>
+            <ul>
+              <!-- <li><%= users %></li> -->
+              <li><%= users[user] %></li>
+            </ul>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
