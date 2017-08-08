@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>The Dojo Message Board</title>
+        <link rel="stylesheet" href="/index.css">
+    </head>
+    <body>
+        <div id = "wrapper">
+            <h1>The Dojo Message Board</h1>
+            <div id="content">
+                <form action="/post %>" method="post">
+                  <div class="forminput">
+                    Name: <input type="text" name="name" placeholder="name">
+                  </div>
+                  <div class="forminput">
+                    Post: <textarea name="text" rows="8" cols="80" placeholder="post"></textarea>
+                  </div>
+                  <div class="formsubmit">
+                    <input type="submit" value="Submit">
+                  </div>
+                </form>
+                <% if(posts) { %>
+                    <% for(post of posts) { %>
+                        <div class="cat">
+                            <ul>
+                                <li><h2>Name: <%= post.name %></h2></li>
+                                <li><h2>Post: <%= post.text %><h2></li>
+                                <% for(comment of post._comments) { %>
+                                    Name: <%= comment.name %><br>
+                                    Comment: <%= comment.text %>
+                                <% } %>
+                            </ul>
+                            <form action="/posts/<%=post.id%>" method="post">
+                                <div class="forminput">
+                                  Name: <input type="text" name="name" placeholder="name">
+                                </div>
+                                <div class="forminput">
+                                  Comment: <textarea name="text" rows="2" placeholder="comment"></textarea>
+                                </div>
+                                <div class="formsubmit">
+                                  <input type="submit" value="Submit">
+                                </div>
+                            </form>
+                        </div>
+                    <% } %>
+                <% } %>
+            </div>
+        </div>
+    </body>
+</html>
