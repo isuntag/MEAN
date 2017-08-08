@@ -16,11 +16,9 @@
                                 <li>Name: <%= cat.name %></li>
                                 <li>Age: <%= cat.age %></li>
                                 <li>Color: <%= cat.color %></li>
-                                <a href="/cats/<%=cat.id %>"><button>Edit</button></a>
-                                <form action="/cats/destroy/<%=cat.id%>" method="post">
-                                    <input type="submit" value="Delete">
-                                </form>
                             </ul>
+                            <a href="/cats/<%=cat.id %>"><button>Edit</button></a>
+                            <a href="/cats/destroy/<%=cat.id%>"><button>Delete</button></a>
                         </div>
                     <% } %>
                 <% } %>
