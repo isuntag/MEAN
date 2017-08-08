@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="/index.css">
+    </head>
+    <body>
+        <div id = "wrapper">
+            <h1>Cat Dashboard</h1>
+            <div id="content">
+                <% if(cats) { %>
+                    <% for(var cat of cats) { %>
+                        <div class="cat">
+                            <ul>
+                                <li>Name: <%= cat.name %></li>
+                                <li>Age: <%= cat.age %></li>
+                                <li>Color: <%= cat.color %></li>
+                            </ul>
+                            <a href="/cats/<%=cat.id %>"><button>Edit</button></a>
+                            <a href="/cats/destroy/<%=cat.id%>"><button>Delete</button></a>
+                        </div>
+                    <% } %>
+                <% } %>
+                <a href="/cats/add"><button>Add a Cat</button></a>
+            </div>
+        </div>
+    </body>
+</html>
