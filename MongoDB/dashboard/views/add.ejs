@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add a Cat</title>
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body>
+    <div id = "wrapper">
+        <h1>Add a Cat</h1>
+        <div id="content">
+            <% if(typeof(errors) != 'undefined' ) { %>
+                <% for (var x in errors) { %>
+                    <h3><%= errors[x].message %></h3>
+                <% } %>
+            <% } %>
+        <form action="/cats" method="post">
+          <div class="forminput">
+            Name: <input type="text" name="name" placeholder="name">
+          </div>
+          <div class="forminput">
+            Age: <input type="number" name="age" placeholder="age">
+          </div>
+          <div class="forminput">
+            Color: <input type="text" name="color" placeholder="color">
+          </div>
+          <div class="formsubmit">
+            <input type="submit" value="Submit">
+          </div>
+        </form>
+        <a href="/"><button>Go Back</button></a>
+      </div>
+    </div>
+  </body>
+</html>
