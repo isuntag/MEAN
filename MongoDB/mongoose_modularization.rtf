@@ -44,7 +44,7 @@ var models_path = path.join(__dirname, './../models');\
 fs.readdirSync(models_path).forEach(function(file) \{\
     if(file.indexOf('.js') >= 0) \{\
         require(models_path + '/' + file);\
-    \};\
+    \}\
 \});\
 \
 
@@ -62,7 +62,7 @@ module.exports = function(app)\{\
 \}\
 \
 
-\b In controllers/controller_name.js:
+\b In controllers/controller_names.js:
 \b0 \
 var mongoose = require(\'93mongoose\'94);\
 var \cf6 Controller_Name\cf0  = mongoose.model(\'93\cf7 Controller_Name\cf0 \'94)\
