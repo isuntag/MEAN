@@ -28,8 +28,10 @@
                                 <li><h2>Name: <%= post.name %></h2></li>
                                 <li><h2>Post: <%= post.text %><h2></li>
                                 <% for(comment of post._comments) { %>
-                                    Name: <%= comment.name %><br>
-                                    Comment: <%= comment.text %>
+                                    <div class="comment">
+                                        <p>Name: <%= comment.name %></p>
+                                        <p>Comment: <%= comment.text %></p>
+                                    </div>
                                 <% } %>
                             </ul>
                             <form action="/posts/<%=post.id%>" method="post">

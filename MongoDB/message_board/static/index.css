@@ -53,3 +53,14 @@ textarea {
 .formcomment {
   text-align: left;
 }
+.comment {
+    border-left: 1px solid whitesmoke;
+    padding: 5px;
+    margin: 0 auto 5px auto;
+    width: 50%;
+    text-align: left
+}
+.cat {
+    width: 70%;
+    margin: 0 auto;
+}

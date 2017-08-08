@@ -35,7 +35,8 @@ app.post('/post', function(req,res) {
 app.post('/posts/:id', function(req, res) {
     Post.findOne({_id: req.params.id}, function(err, post) {
         var comment = new Comment(req.body);
-        comment._post = Post._id;
+        comment._post = post._id;
+        console.log(post._id);
         Post.update({_id: req.params.id}, {$push: {"_comments": comment}}, function(err) {
         });
         comment.save(function(err){
