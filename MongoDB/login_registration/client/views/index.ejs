@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <% if(errors){ %>
+
+                <%= errors %>
+
+        <% } %>
+        <h1>Register</h1>
+        <form action="/signup" method="post">
+            First Name: <input type="text" name="first_name" placeholder="First Name"><br>
+            Last Name: <input type="text" name="last_name" placeholder="Last Name"><br>
+            Email: <input type="text" name="email" placeholder="Email"><br>
+            Birthday: <input type="date" name="birthday"><br>
+            Password: <input type="password" name="password" placeholder="Password"><br>
+            Confirm Password: <input type="password" name="password_confirm" placeholder="Confirm Password"><br>
+            <input type="submit">
+        </form>
+        <h1>Login</h1>
+        <form action="/login" method="post">
+            Email: <input type="text" name="email" placeholder="Email"><br>
+            Password: <input type="password" name="password" placeholder="Password"><br>
+            <input type="submit">
+        </form>
+    </body>
+</html>

@@ -2,29 +2,27 @@
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;\red230\green230\blue230;\red0\green145\blue206;\red0\green41\blue57;
 \red194\green229\blue166;\red255\green0\blue255;\red255\green0\blue0;\red0\green0\blue255;\red71\green20\blue0;
-\red255\green219\blue205;\red71\green20\blue0;\red255\green219\blue205;}
+\red255\green219\blue205;}
 {\*\expandedcolortbl;;\csgray\c92143;\csgenericrgb\c0\c56863\c80784;\csgenericrgb\c0\c16078\c22353;
 \csgenericrgb\c76078\c89804\c65098;\csgenericrgb\c100000\c0\c100000;\csgenericrgb\c100000\c0\c0;\csgenericrgb\c0\c0\c100000;\csgenericrgb\c27843\c7843\c0;
-\csgenericrgb\c100000\c85882\c80392;\csgenericrgb\c27843\c7843\c0;\csgenericrgb\c100000\c85882\c80392;}
+\csgenericrgb\c100000\c85882\c80392;}
 \margl1440\margr1440\vieww16560\viewh19580\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs24 \cf0 in server.js:\
 
 \b0 var express = require(\'91express\'92);\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 var path = require(\'91path\'92);\
+var path = require(\'91path\'92);\
 var app = express();\
 var bodyParser = require(\'91body-parser\'92);\
 var port = 5000;\
 \
 app.use(bodyParser.urlencoded(\{extended: true\}));\
-app.use(express.static(__dirname + '/static'));\
+app.use(express.static(__dirname + \'91/client/static'));\
 app.set('view engine', 'ejs');\
-app.set('views', __dirname + "/views");\
+app.set('views', __dirname + \'93/client/views");\
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 require('./server/config/mongoose.js');\
+require('./server/config/mongoose.js');\
 require('./server/config/routes.js')(app);\
 \
 app.listen(port, function() \{\
@@ -35,11 +33,9 @@ app.listen(port, function() \{\
 \b in mongoose.js:
 \b0 \
 var mongoose = require(\'91mongoose\'92);\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 var fs = require(\'91fs\'92);\
+var fs = require(\'91fs\'92);\
 var path = require(\'91path\'92);\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 mongoose.connect('mongodb://localhost/database_name_here');\
+mongoose.connect('mongodb://localhost/database_name_here');\
 var models_path = path.join(__dirname, './../models');\
 fs.readdirSync(models_path).forEach(function(file) \{\
     if(file.indexOf('.js') >= 0) \{\
@@ -51,10 +47,8 @@ fs.readdirSync(models_path).forEach(function(file) \{\
 \b in config/routes.js:
 \b0 \
 var controller_name = require('../controllers/controller_name.js')\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 var controller_name = require('../controllers/controller_name2.js')\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
+var controller_name = require('../controllers/controller_name2.js')\
+\
 module.exports = function(app)\{\
 	app.get(\'91/\'91, \cb2 controller_name.index\cb1 );\
 	app.post(\'91/\cf3 \cb4 route\cf0 \cb1 \'92, \cb5 controller_name.create\cb1 );\
@@ -101,24 +95,20 @@ mongoose.model(\'93\cf7 Controller_Name\cf0 \'94, Model_NameSchema);\
 
 \b0 Standard html file\'85\
 <body>\
-	<%= \cf11 \cb12 results\cf0 \cb1  %> // Shows results that were passed in\
+	<%= \cf9 \cb10 results\cf0 \cb1  %> // Shows results that were passed in\
 \
 	<table border=1>\
 		<tr>\
 			<th>Something</th>\
 			<th>Another</th>\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 			<th>Created At</th>\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 		</tr>\
-		<% for(let result of \cf11 \cb12 results\cf0 \cb1 )\{ %>\
+			<th>Created At</th>\
+		</tr>\
+		<% for(let result of \cf9 \cb10 results\cf0 \cb1 )\{ %>\
 			<tr>\
 				<td><%= result.something %></td>\
 				<td><%= result.another %></td>\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 				<td><%= result.createdAt %></td> // this was automatically added because we said \'93\{timestamps: true\}\'94\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 			</tr>\
+				<td><%= result.createdAt %></td> // this was automatically added because we said \'93\{timestamps: true\}\'94\
+			</tr>\
 		<% \} %>\
 	</table>\
 \
