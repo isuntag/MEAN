@@ -12,7 +12,7 @@ function Users() {
                 console.log(err);
                 res.render('index', {errors: err});
             }
-            console.log('user created')
+            console.log('user created');
             req.session.user_id = user.id;
             req.session.name = user.first_name+ " "+user.last_name;
             res.redirect('/welcome');
@@ -31,7 +31,6 @@ function Users() {
         });
     }
     this.welcome = function(req, res){
-        console.log(req.session.name);
         if(!req.session.user_id) {
             res.redirect('/');
         }
@@ -41,7 +40,6 @@ function Users() {
     }
     this.logout = function(req, res) {
         req.session.destroy();
-        console.log(req.session);
         res.redirect('/')
     }
 }
