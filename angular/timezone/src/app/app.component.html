@@ -1,0 +1,11 @@
+<!DOCTYPE = html>
+<h1>{{title}}</h1>
+<button (click)="timeChange({timezone: 'PST', offset: -1})" [ngClass]= "{'active': timezone === 'PST'}">PST</button>
+<button (click)="timeChange({timezone: 'MST', offset: -1})" [ngClass]= "{'active': timezone === 'MST'}">MST</button>
+<button (click)="timeChange({timezone: 'CST', offset: -1})" [ngClass]= "{'active': timezone === 'CST'}">CST</button>
+<button (click)="timeChange({timezone: 'EST', offset: 0})" [ngClass]= "{'active': timezone === 'EST'}">EST</button>
+<button (click)="clear()">Clear</button>
+<div>
+    {{ time | date: 'medium'}}
+    {{ timezone }}
+</div>

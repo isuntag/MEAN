@@ -3,6 +3,6 @@
         {{title}}
     </h1>
     <div id="content">
-        <div *ngFor='let color of colors' class='color' [ngStyle]="{'background-color': 'rgb('+color.color+')'}"></div>
+        <div *ngfor="let color of colors" class="color" [ngstyle]="{'background-color': 'rgb('+color.color+')'}"></div>
     </div>
 </div>
