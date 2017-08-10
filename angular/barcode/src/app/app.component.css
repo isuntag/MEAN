@@ -1,0 +1,21 @@
+#content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.color {
+    width: 100px;
+    height: 100px;
+}
+body {
+    background-color: floralwhite;
+}
+h1 {
+    font: 100 60pt 'Helvetica Neue', sans-serif;
+    color: lightcoral;
+}
+#container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}

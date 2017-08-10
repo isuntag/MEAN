@@ -1,0 +1,8 @@
+<div id="container">
+    <h1>
+        {{title}}
+    </h1>
+    <div id="content">
+        <div *ngFor='let color of colors' class='color' [ngStyle]="{'background-color': 'rgb('+color.color+')'}"></div>
+    </div>
+</div>
