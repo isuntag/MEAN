@@ -1,0 +1,20 @@
+<div id="container">
+    <h1>{{title}}</h1>
+    <div id="content">
+        <table>
+            <tr>
+                <th>Email</th>
+                <th>Importance</th>
+                <th>Subject</th>
+                <th>Content</th>
+            </tr>
+            <tr *ngFor="let email of emails">
+                <td>{{email.email | lowercase}}</td>
+                <td *ngIf='email.importance'>High</td>
+                <td *ngIf='!email.importance'>Low</td>
+                <td>{{email.subject}}</td>
+                <td>{{email.content}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

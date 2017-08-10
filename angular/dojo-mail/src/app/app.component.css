@@ -1,0 +1,28 @@
+body {
+    background-color: floralwhite;
+}
+h1 {
+    font: 100 60pt 'Helvetica Neue', sans-serif;
+    color: lightcoral;
+}
+td, th {
+    padding: 5px;
+}
+th {
+    font: 300 16pt 'Helvetica Neue', sans-serif;
+    color: white;
+}
+td {
+    font: 100 12pt 'Helvetica Neue', sans-serif;
+    text-align: left;
+}
+#container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+#content {
+    background-color: lightcoral;
+    padding: 10px;
+    color: floralwhite;
+}
