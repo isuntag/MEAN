@@ -1,0 +1,10 @@
+<div id="container">
+  <h1>
+    {{title}}
+  </h1>
+<div>
+    <button *ngFor="let switch of switchboard; let idx = index" [ngClass]="{'on': switchboard[idx] === 'on', 'off': switchboard[idx] === 'off'}" (click)="change(idx)">
+    {{switch}}
+</button>
+</div>
+</div>

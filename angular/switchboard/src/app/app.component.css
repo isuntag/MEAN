@@ -1,0 +1,26 @@
+body {
+    background-color: floralwhite;
+}
+#container {
+    margin: 0 auto;
+    text-align: center;
+}
+button, button:focus {
+    width: 70px;
+    height: 70px;
+    border: none;
+    margin: 5px;
+    outline: none;
+    font: 100 16pt 'Helvetica Neue', sans-serif;
+    color: white;
+}
+.on {
+    background-color: green;
+}
+.off {
+    background-color: red;
+}
+h1 {
+    font: 100 60pt 'Helvetica Neue', sans-serif;
+    color: lightcoral;
+}
