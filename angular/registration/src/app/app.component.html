@@ -2,8 +2,8 @@
 <div id="wrapper">
     <h1>Login & Registration</h1>
     <div id="content">
-        <div class="confirmation" *ngIf="new_user">
-            <p>Thank you for registering with us {{this.new_user.fname}}. We just sent you a confimation email to {{this.new_user.email}} and we will send all mail to {{ this.new_user.street}}<span class="error" *ngIf="this.users[this.users.length-1].unit"> {{this.new_user.unit}}</span>, {{this.new_user.city}} {{this.new_user.state}}.</p>
+        <div id="result" *ngIf="new_user">
+            <p>Thank you for registering with us {{this.new_user.fname}}. We just sent you a confimation email to {{this.new_user.email}} and we will send all mail to {{ this.new_user.street}}<span *ngIf="this.users[this.users.length-1].unit"> {{this.new_user.unit}}</span>, {{this.new_user.city}} {{this.new_user.state}}.</p>
             <p>Have a wonderful day!</p>
         </div>
         <form (submit)="onSubmit()" #formData="ngForm">

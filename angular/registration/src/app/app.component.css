@@ -76,3 +76,9 @@ input[disabled] {
 span.error {
     color: black;
 }
+#result {
+    padding: 5px;
+    background-color: floralwhite;
+    color: black;
+    margin-bottom: 10px;
+}
