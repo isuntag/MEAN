@@ -1,0 +1,192 @@
+<div id="body">
+<div id="wrapper">
+    <h1>Login & Registration</h1>
+    <div id="content">
+        <div class="confirmation" *ngIf="new_user">
+            <p>Thank you for registering with us {{this.new_user.fname}}. We just sent you a confimation email to {{this.new_user.email}} and we will send all mail to {{ this.new_user.street}}<span class="error" *ngIf="this.users[this.users.length-1].unit"> {{this.new_user.unit}}</span>, {{this.new_user.city}} {{this.new_user.state}}.</p>
+            <p>Have a wonderful day!</p>
+        </div>
+        <form (submit)="onSubmit()" #formData="ngForm">
+            <div>
+                First Name:
+                <input
+                type="text"
+                name="fname"
+                placeholder="first name"
+                required
+                [(ngModel)]="user.fname"
+                #fname="ngModel"
+                >
+                <span class="error" *ngIf="fname.invalid">First name is required.</span>
+            </div>
+            <div>
+                Last Name:
+                <input
+                type="text"
+                name="lname"
+                placeholder="last name"
+                required
+                [(ngModel)]="user.lname"
+                #lname="ngModel"
+                >
+                <span class="error" *ngIf="lname.invalid">Last name is required.</span>
+            </div>
+            <div>
+                Email:
+                <input
+                type="text"
+                name="email"
+                placeholder="email"
+                required
+                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                [(ngModel)]="user.email"
+                #email="ngModel"
+                >
+                <span class="error" *ngIf="email.hasError('required')">Email is required.</span>
+                <span class="error" *ngIf="email.hasError('pattern')">Email must be valid.</span>
+            </div>
+            <div>
+                Password:
+                <input
+                type="password"
+                name="password"
+                placeholder="password"
+                required
+                minlength="16"
+                [(ngModel)]="user.password"
+                #password="ngModel"
+                >
+                <span class="error" *ngIf="password.invalid">Password must be at least 16 characters long.</span>
+            </div>
+            <div>
+                Password Confirmation:
+                <input
+                type="password"
+                name="password_confirm"
+                placeholder="password confirmation"
+                required
+                [(ngModel)]="user.password_confirm"
+                #passwordconfirm="ngModel"
+                >
+                <span class="error" *ngIf="user.password_confirm != user.password">Passwords must match.</span>
+            </div>
+            <div>
+                Street Address:
+                <input
+                type="text"
+                name="street"
+                placeholder="street address"
+                required
+                [(ngModel)]="user.street"
+                #street="ngModel"
+                >
+                <span class="error" *ngIf="street.invalid">Address is required.</span>
+            </div>
+            <div>
+                Unit/Apt #:
+                <input
+                type="text"
+                name="unit"
+                placeholder="unit/apt #"
+                [(ngModel)]="user.unit"
+                #unit="ngModel"
+                >
+            </div>
+            <div>
+                City:
+                <input
+                type="text"
+                name="city"
+                placeholder="city"
+                required
+                [(ngModel)]="user.city"
+                #city="ngModel"
+                >
+                <span class="error" *ngIf="city.invalid">City is required.</span>
+            </div>
+            <div>
+                <select
+                name="state"
+                required
+                [(ngModel)]="user.state"
+                #state="ngModel"
+                >
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+                <span class="error" *ngIf="state.invalid">State is required.</span>
+            </div>
+            <div>
+                I'm feeling lucky:
+                <input
+                type="radio"
+                name="lucky"
+                value="true"
+                required
+                [(ngModel)]="user.lucky"
+                #lucky="ngModel"
+                > Yes
+                <input
+                type="radio"
+                name="lucky"
+                value="false"
+                [(ngModel)]="user.lucky"
+                > No
+                <span class="error" *ngIf="lucky.invalid">Choosing how you feel is required</span>
+            </div>
+            <div>
+                <input type="submit" [disabled]='formData.invalid'>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
