@@ -1,0 +1,33 @@
+* {
+    vertical-align: baseline;
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    border: 0 none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    background-color: floralwhite;
+}
+div {
+    background-color: lightcoral;
+    padding: 10px;
+    margin: 5px;
+}
+#header {
+    flex-basis: 100%;
+}
+#nav {
+    flex-basis: 20%;
+    flex-grow: 1;
+}
+#main {
+    flex-basis: 70%;
+    flex-grow: 2;
+}

@@ -1,0 +1,26 @@
+* {
+    font: 100 12pt 'Hevetica Neue', sans-serif;
+    color: floralwhite;
+}
+h3 {
+    font-size: 14pt;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    text-align: center;
+    padding: 5px;
+    margin: 5px auto;
+    background-color: floralwhite;
+    width: 60%;
+    min-width: 100px;
+}
+li:hover {
+    background-color: white;
+}
+a {
+    text-decoration: none;
+    color: lightcoral;
+}
