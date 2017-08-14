@@ -1,0 +1,10 @@
+td {
+    padding: 10px;
+    background-color: floralwhite;
+}
+table {
+    border: 1px solid black;
+}
+button {
+    display: block;
+}
