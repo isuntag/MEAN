@@ -1,0 +1,15 @@
+div {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    vertical-align: top;
+    background-color: floralwhite;
+    padding: 10px;
+    text-align: center;
+    font: 100 12pt "Helvetica Neue", sans-serif;
+}
+span.exclaimation {
+    display: block;
+    color: darkgreen;
+    font: 300 16pt "Helvetica Neue", sans-serif;
+}
