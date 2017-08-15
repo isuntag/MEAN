@@ -1,16 +1,24 @@
-<h1>GitHub Score</h1>
-<form method="post" (submit)="onSubmit()">
-    GitHub Username: <input type="text" name="username" [(ngModel)]="username" placeholder="github username"><br>
-    <input type="submit" value="Calculate my Github Score">
-</form>
-<div *ngIf="info.name">
-Your Score: {{info.public_repos+info.followers}}
-    <div *ngIf="info.public_repos+info.followers < 20" class="red">Needs Work!</div>
-    <div *ngIf="info.public_repos+info.followers >= 20 && info.public_repos+info.followers < 50" class="orange">A decent start!</div>
-    <div *ngIf="info.public_repos+info.followers >= 50 && info.public_repos+info.followers < 100" class="black">Doing good!</div>
-    <div *ngIf="info.public_repos+info.followers >= 100 && info.public_repos+info.followers < 200" class="green">Great job!</div>
-    <div *ngIf="info.public_repos+info.followers >= 200" class="blue">Github Elite!</div>
-</div>
-<div *ngIf="err">
-    "User does not exist, pick a different Github username."
+<div id="container">
+    <h1>GitHub Score</h1>
+    <div id="content">
+        <form method="post" #lookup="ngForm" (submit)="onSubmit()">
+            <div class="forminput">
+                GitHub Username: <input type="text" name="username" [(ngModel)]="username" placeholder="github username" required>
+            </div>
+            <div class="formsubmit">
+                <input type="submit" value="Calculate my Github Score" [disabled]="lookup.invalid">
+            </div>
+        </form>
+        <div *ngIf="info.name">
+            <h2>Your Score: {{info.public_repos+info.followers}}</h2>
+            <span class="comment red" *ngIf="info.public_repos+info.followers < 20">Needs Work!</span>
+            <span class="comment orange" *ngIf="info.public_repos+info.followers >= 20 && info.public_repos+info.followers < 50">A decent start!</span>
+            <span class="comment black" *ngIf="info.public_repos+info.followers >= 50 && info.public_repos+info.followers < 100">Doing good!</span>
+            <span class="comment green" *ngIf="info.public_repos+info.followers >= 100 && info.public_repos+info.followers < 200">Great job!</span>
+            <span class="commen blue" *ngIf="info.public_repos+info.followers >= 200">Github Elite!</span>
+        </div>
+        <div *ngIf="err">
+            "User does not exist, pick a different Github username."
+        </div>
+    </div>
 </div>

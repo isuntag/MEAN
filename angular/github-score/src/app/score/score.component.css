@@ -1,3 +1,36 @@
+* {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    list-style: none;
+}
+#container {
+    font: 100 16pt "Helvetica Neue", sans-serif;
+    color: floralwhite;
+    background-color: floralwhite;
+    padding: 10px;
+}
+h1 {
+    font-size: 60pt;
+    color: lightcoral;
+    margin: 0;
+    text-align: center;
+}
+h2 {
+    font-size: 30pt;
+    margin: 10px 0;
+    color: white;
+}
+#content {
+    width: 80%;
+    background-color: lightcoral;
+    padding: 10px;
+    text-align: center;
+    margin: 0 auto;
+}
 .red {
     color: red;
 }
@@ -12,4 +45,24 @@
 }
 .blue {
     color: blue;
+}
+#info {
+    background-color: floralwhite;
+}
+span {
+    display: block;
+    font-weight: 500;
+}
+.forminput, .formsubmit {
+  padding: 3px;
+  margin: 2px;
+}
+input {
+  background-color: white;
+  padding: 3px;
+}
+input[type=submit] {
+  background-color:white;
+  color: lightcoral;
+  font-size: 12pt;
 }

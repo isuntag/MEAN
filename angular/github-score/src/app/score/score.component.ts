@@ -9,13 +9,13 @@ import { TaskService } from '../task.service';
 export class ScoreComponent implements OnInit {
     username="";
     info = [];
-    err = ""
+    err = "";
   constructor(private _taskService: TaskService) { }
   ngOnInit() {
   }
   onSubmit() {
       this._taskService.retrieveInfo(this.username)
-      .then(info => this.info = info)
-      .catch(err => this.err = err);
+      .then(info => {this.info = info; this.err=null})
+      .catch(err => {this.err = err; this.info=[]});
   }
 }
