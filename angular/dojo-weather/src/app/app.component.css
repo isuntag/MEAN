@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+#container {
+    width: 80%;
+    margin: 0 auto;
+    font: 100 12pt "Helvetica Neue", sans-serif;
+    text-align: center;
+    background-color: floralwhite;
+    color: lightcoral;
+}
+h1 {
+    font-size: 60pt;
+}
+a {
+    text-decoration: none;
+    color: lightcoral;
+}
+a:hover {
+    color: #b61212;
+}
+#content {
+    margin-top: 10px;
+    background-color: lightcoral;
+}

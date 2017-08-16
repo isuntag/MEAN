@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+img {
+    width: 200px;
+}
+#container {
+    color: floralwhite;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+h2 {
+    font-size: 30pt;
+    width: 100%;
+    padding: 5px;
+}
+#info, #image {
+    width: 35%;
+    padding: 5px;
+    min-width: 200px;
+}
