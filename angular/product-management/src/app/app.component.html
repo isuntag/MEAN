@@ -1,0 +1,4 @@
+<h1> Products </h1>
+<a [routerLink]="['']">Home</a> | <a [routerLink]="['products']">Product List</a> | <a [routerLink]="['products', 'new']">Product Creation</a>
+<router-outlet (addProduct)="onSubmit($event)"></router-outlet>
+<!-- use service not outputs -->
