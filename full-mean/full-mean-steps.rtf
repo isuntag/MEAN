@@ -1,0 +1,400 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red27\green31\blue34;\red255\green255\blue255;\red215\green219\blue223;
+\red109\green109\blue109;\red244\green246\blue249;\red127\green127\blue127;\red255\green0\blue0;\red0\green0\blue255;
+\red0\green0\blue0;\red255\green0\blue255;\red102\green177\blue50;\red243\green235\blue0;\red102\green177\blue50;
+\red243\green235\blue0;\red255\green255\blue255;\red205\green205\blue205;\red230\green230\blue230;}
+{\*\expandedcolortbl;;\cssrgb\c14118\c16078\c18039;\cssrgb\c100000\c100000\c100000;\cssrgb\c87451\c88627\c89804;
+\cssrgb\c50196\c50196\c50196;\cssrgb\c96471\c97255\c98039;\csgenericrgb\c49804\c49804\c49804;\csgenericrgb\c100000\c0\c0;\csgenericrgb\c0\c0\c100000;
+\csgenericrgb\c0\c0\c0;\csgenericrgb\c100000\c0\c100000;\csgenericrgb\c40000\c69412\c19608;\csgenericrgb\c95294\c92157\c0;\csgenericrgb\c40000\c69412\c19608;
+\csgenericrgb\c95294\c92157\c0;\csgenericrgb\c100000\c100000\c100000;\csgray\c84070;\csgray\c92143;}
+\margl1440\margr1440\vieww16560\viewh19580\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 SETTING UP WITH D2\'92S TOOL:
+\b0 \
+$ang2starter [PROJECT NAME]\
+\
+// user controller and model already created\
+\
+IN mongoose.js\
+	CHANGE \'93const DBNAME\'94 TO NAME AS A STRING AND UNCOMMENT THE NEXT LINE (\'93mongoose.connect\'85\'94)
+\i \
+
+\i0 \
+TERMINAL TAB 1: $mongod \'97> unless already running\
+TERMINAL TAB 2: $nodemon\
+TERMINAL TAB 3: $cd public\
+		         $ng build -w\
+\
+IF SESSION AND/OR BCRYPT NEEDED: in project folder: $npm i express-session bcrypt\
+\
+IN package.json:\
+	CHANGE \'93author\'94 to your name
+\b \ul \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \ulc0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\i\b0 \cf0 \ulnone // REMEMBER TO PREFIX ALL API REQUESTS TO DB WITH \'91/api/\'91 . IF YOU DON\'92T NEED TO PULL ANYTHING FROM DB THEN DO \ul NOT\ulnone  USE \'91/api/\'91.\
+RESTFUL ROUTES EXAMPLE:\
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat3 \clwWidth2040\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx2880
+\clvertalc \clcbpat3 \clwWidth1680\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx5760
+\clvertalc \clcbpat3 \clwWidth7780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\qc\partightenfactor0
+
+\i0 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 URL\cell 
+\pard\intbl\itap1\pardeftab720\sl360\qc\partightenfactor0
+\cf2 HTTP Verb\cell 
+\pard\intbl\itap1\pardeftab720\sl360\qc\partightenfactor0
+\cf2 Action\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat3 \clwWidth2040\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx2880
+\clvertalc \clcbpat3 \clwWidth1680\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx5760
+\clvertalc \clcbpat3 \clwWidth7780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 /api/photos/\cell 
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 GET\cell 
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 index - show all \'91photos\'92\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat6 \clwWidth2040\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx2880
+\clvertalc \clcbpat6 \clwWidth1680\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx5760
+\clvertalc \clcbpat6 \clwWidth7780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 /photos/new\cell 
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 GET\cell 
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 new - show form to create new \'91photo\'92 (not pulling anything from DB)\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat3 \clwWidth2040\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx2880
+\clvertalc \clcbpat3 \clwWidth1680\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx5760
+\clvertalc \clcbpat3 \clwWidth7780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 /api/photos\cell 
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 POST\cell 
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 create - create a new \'91photo\'92\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat6 \clwWidth2040\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx2880
+\clvertalc \clcbpat6 \clwWidth1680\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx5760
+\clvertalc \clcbpat6 \clwWidth7780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 /api/photos/:id\cell 
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 GET\cell 
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 show - show one \'91photo\'92\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat3 \clwWidth2040\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx2880
+\clvertalc \clcbpat3 \clwWidth1680\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx5760
+\clvertalc \clcbpat3 \clwWidth7780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 /api/photos/:id/edit\cell 
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 GET\cell 
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 edit - show one \'91photo\'92 to edit\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat6 \clwWidth2040\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx2880
+\clvertalc \clcbpat6 \clwWidth1680\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx5760
+\clvertalc \clcbpat6 \clwWidth7780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 /api/photos/:id\cell 
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 PUT\cell 
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 update - edit one \'91photo\'92\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat3 \clwWidth2040\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx2880
+\clvertalc \clcbpat3 \clwWidth1680\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx5760
+\clvertalc \clcbpat3 \clwWidth7780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrs\brdrw20\brdrcf4 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 /api/photos/:id\cell 
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 DELETE\cell 
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+\cf2 destroy - delete one \'91photo\'92
+\f1\fs32 \cell \lastrow\row
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 \kerning1\expnd0\expndtw0 \ul \ulc0 \outl0\strokewidth0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \ulc0 \
+\cf7 \ulc7 Setup:
+\b0 \ulnone \
+CREATE PROJECT FOLDER\
+CREATE SERVER.JS\
+$npm init -y\
+$npm i express mongoose body-parser \'97save (MAYBE ALSO express-session and/or bycrypt)\
+CREATE EXPRESS FILE STRUCTURE\
+	server\
+		config\
+			mongoose.js\
+			router.js\
+		controllers\
+			[controllername]s.js\
+		models\
+			[modelname].js\
+IN PROJECT FOLDER: $ng new [ANGULAR PROJECT NAME] \'97routing\
+$mv [ANGULAR PROJECT NAME] public\
+$cd public\
+$ng build -w\cf0 \
+\
+
+\b \ul Back-end:
+\b0 \ulnone \
+\cf7 server.js\
+	REQUIRE express, path, body-parser\
+	var app = express();\
+	app.use(bodyParser.json())\
+	LINK SERVER TO ANGULAR (public)\
+		app.use(express.static(path.resolve(\'91public, \'91dist\'92)))\
+	require(\'91./server/config/mongoose.js\'92)\
+	require(\'91./server/config/routes.js\'92)(app)\
+	app.listen(8000, function()\{\
+		console.log(\'91Listening..\'92);\
+	\});\cf0 \
+\
+\cf7 mongoose.js\
+	COPY AND CHANGE DATABASE NAME:\
+		var mongoose = require('mongoose');\
+		var fs = require('fs');\
+		var path = require('path');\
+		mongoose.connect('mongodb://localhost/
+\b [DATABASE NAME HERE]\'92
+\b0 );\
+		var models_path = path.join(__dirname, './../models');\
+		fs.readdirSync(models_path).forEach(function(file) \{\
+    			if(file.indexOf('.js') >= 0) \{\
+        				require(models_path + '/' + file);\
+    			\}\
+		\});\cf0 \
+\
+[MODELNAME].js\
+	REQUIRE mongoose\
+	var \cf8 [M\cf8 ODELNAME]Schema\cf0  = new mongoose.Schema(\{\
+		attributeName: \{type: Type, required: [true, \'93MESSAGE TO DISPLAY ON ERROR\'94], \'85 \},\
+		\'85\
+	\}, \{timespamps:true\});\
+	mongoose.model(\'91\cf9 [NAME]\cf10 \'92\cf0 ,\cf8 [MODELNAME]Schema\cf10 )\
+\
+[CONTROLLERNAME]s.js\
+	REQUIRE mongoose\
+	var \cf11 [CONTROLLERNAME]\cf10  = mongoose.model(\'91\cf9 [NAME]\cf10 \'92)\
+	function \cf12 [CONTROLLERNAME]s\cf10 () \{\
+		this.\cb13 method\cb1 =function(req,res)\{\
+			WHATEVER YOU WANT METHOD TO DO \
+			res.json()
+\i (FOR RESPONSE)
+\i0  / res.status([ERRORCODE]).json()
+\i (FOR ERRORS)\
+				EXAMPLE:
+\i0 \
+				\cf11 [CONTROLLERNAME]\cf10 .find(\{id: req.params.id\}, function(err, response) \{\
+					if(err) \{\
+						return res.status([401).json(err);\
+					\}\
+					res.json(response);\
+				\});\
+		\}\
+		\'85\
+	\}\
+	module.exports = new \cf14 [CONTROLLERNAME]s\cf10 ();\
+\
+routes.js\
+	REQUIRE mongoose, path, \cf14 [CONTROLLERNAME]s\cf10 \
+	module.exports = function(app) \{\
+		app.\ul post/get/put/delete\ulnone (\'93/\'85\'94, \cf14 [CONTROLLERNAME]s\cf10 .\cf10 \cb15 method\cf10 \cb1 ),\
+		\'85\
+		app.get(\'91*\'92,(req,res) => \{\
+			res.sendFile(path.resolve(\'93public\'94, \'93dist" \'93index.html\'94))\
+		\});\
+	\}\
+
+\i // app.post \'97> CREATE; app.get \'97> READ; app.put \'97> UPDATE; app.delete \'97> DESTROY
+\i0 \
+\
+
+\b \ul Front-end:
+\b0 \ulnone \
+IF NEED A COMPONENT: IN public: $ng g c [COMPONENTNAME]\
+IF NEED A SERVICE: IN app: $ng g s [SERVICENAME]\
+\
+app.modules.ts\
+	IMPORT FormsModule, HttpModule, AND ALL SERVICES\
+	FIX THE AUTOMATICALLY GENERATED PATHS FOR NESTS COMPONENTS\
+	ADD MODULES TO imports ARRAY\
+	ADD SERVICES TO providers ARRAY\
+\
+app-routing.module.ts\
+	IMPORT COMPONENTS\
+	ADD PATHS WITH COMPONENTS AND :\cf16 \cb7 [ROUTEPARAMS]\cf10 \cb1  IF USED\
+\
+[SERVICENAME].service.ts\
+	import \{ Http, Response \} from \'91@angular/http\'92\
+	import \'91rxjs/Rx\'92;\
+	import \'91rxjs/add/operator/map\'92;\
+	import \'91rxjs/add/operator/toPromise\'92;\
+	IN constructor(private _http: Http)\{\}\
+	ADD METHODS:\
+		EXAMPLE: \
+		retrieveOne(id, product) \{\
+			return this._http.\ul get/post/put/delete\ulnone (\'91/../$\{id\}\'92, product)\
+			.map((response: Response) => response.json())\
+			.toPromise()\
+		\}\
+\
+component.ts\
+	IMPORT SERVICE\
+	SET VARIABLES\
+	
+\b error: Object; 
+\b0 \'97> DEALING WITH ERRORS THAT DB RETURNS\
+	IN constructor(private _service: [SERVICE]\
+\ul 	sans route params (aka when grabbing ALL of db)\ulnone :\
+		IN ngOnInit()\{\
+			this.var = this._service.method( )\
+			.then(response => \{ 
+\i WHATEVER YOU NEED IT TO DO
+\i0  \})\
+			.catch(err => \{\
+				
+\b this.error = JSON.parse(err._body);\
+				console.log(myErr)\}) 
+\b0 \'97> DEALING WITH ERRORS THAT DB RETURNS\
+		\}\
+	\ul aver route params (aka when grabbing SPECIFIC data from db):\ulnone \
+		import \{ Router, Activated Route \} from \'91@angular/router\'92\
+		import \{ OnDestroy \} to \'91@angular/core\'92\
+		\'85. implements OnInit, \ul OnDestroy\ulnone  \
+		SET VARIABLE var subscription: any\
+		IN constructor ADD private _route: ActivatedRoute\
+		ngOnInit() \{\
+			this.subscription = this.[FUNCTIONNAME]();\
+		\}\
+		ngOnDestroy() \{\
+			this.subscription.unsubscribe();\
+		\}\
+		[FUNCTIONNAME]() \{\
+			this._route.paramMap\
+			.switchMap(params => \{\
+				return this._service.[METHOD IN SERVICE](params.get(\'91\cf16 \cb7 [ROUTEPARAMS]\cf10 \cb1 \'92)\
+	\ul on event (form submission):\
+		\ulnone [FUNCTIONNAME]() \{\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf10 			this._service.method( )\
+			.then(data => \{ 
+\i \cf10 WHATEVER YOU NEED IT TO DO
+\i0 \cf10  \})\
+			.catch(err => \{ 
+\i \cf10 WHATEVER YOU NEED IT TO DO ON ERROR
+\i0 \cf10 \})\
+		\}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf10 	\ul USING Router AS _router IN constructor:\
+\ulnone 		this._service.[METHOD IN SERVICE]()\
+		.then(this._router.navigateByUrl(\'91\'85\'92))\
+		.catch\'85\
+\
+CLASSES\
+	$ng g class [NAME]\
+	IN CLASS:\
+		export class [NAME] \{\
+			constructor(\
+				ATTRIBUTE: TYPE = [INITIAL VALUE (IF WANTED)]\
+				\'85\
+			)\{\}\
+		\}\
+	IMPORT IN COMPONENTS AS NEEDED\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf10 \cb17 \ul \ulc10 TO FILTER AN ARRAY
+\b0 \ulnone \
+\
+Input \'97 [(ngModel)]=\'93search\'94 (click)=\'93search()\'94\
+\
+Private _bikes = []\
+Private display_bikes = []\
+\
+@Input() set bikes(newBikes) \{\
+	this._bikes = newBikes;\
+	this.display_bikes = _bikes;\
+\}\
+\
+ngOnInit\
+\
+In component\
+	search() \{\
+		this.display_bikes= this._bikes.filter(bike => \{\
+			return bike.title.toLowerCase().includes(this.search.input.toLowerCase())\
+		\})\
+	\}\
+\
+If you have data you want to filter through, you need to copy that data and be displaying that copy.\
+\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf10 \cb18 \ul \ulc10 TO TRACK USER LOGGED IN
+\b0 \ulnone \
+\ul Create user service:\ulnone \
+Import http, response from @angular/http\
+Import User\
+Import rxjs\
+\
+loggedIn: User = \{\
+	name: \'91\'92,\
+	first_name: \'91\'92,\
+	last_name: \'91\'92,\
+	email: \'91\'92,\
+	_id: \'91\'92\
+\}\
+\
+constructor(\
+Private _http: Http\
+) \{ \}\
+\
+login(body) \{\
+	return new Promise((resolve, reject) => \{\
+		this._http.post(`/api/users/login`, body)\
+		.map((response: Response) => response.json())\
+		.toPromise()\
+		.then(user => \{\
+			this.loggedIn = user;\
+			resolve(user);\
+		\})\
+		.catch(err => \{\
+			reject(err);\
+		\})\
+	\})\
+\}\
+\
+\ul Import service into component\ulnone \
+Private server Errors = \{\
+\}\
+\
+login() \{\
+	this._us.login(this.loginUser)\
+	.then(data => )\
+	.catch(err => this.serverErrors = err)\
+\}\
+\
+\ul In HTML:\ulnone \
+*ngIf=\'93firstName.invalid || serverErrors.firstName.message\'94\
+\cb1 \
+}
