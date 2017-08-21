@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const bcrypt = require('bcrypt')
 
 module.exports = {
 	addUser:function(req,res){
@@ -11,6 +12,7 @@ module.exports = {
 			}
 			else{
 				let newUser = new User(req.body);
+				newUser.password = bcrypt.hashSync(newUser.password, bcrypt.genSaltSync(8));
 				newUser.save(function(err){
 					if(err){
 						console.warn(err);
@@ -18,6 +20,7 @@ module.exports = {
 						return res.status(400).json({errors: errors});
 					}
 					else {
+						console.log(newUser.password);
 						return res.json(newUser);
 					}
 				})
@@ -28,18 +31,18 @@ module.exports = {
 	login:function(req,res){
 		let errors = [];
 		User.findOne({email:req.body.email}, function(err, user) {
+			console.log(user.password);
 			if(err){
-				errors.push("Invalid email.");
+				errors.push("Invalid email or password.");
 				console.log('errors')
 				return res.status(400).json({errors:errors})
 			}
 			else{
-				if(user.password != req.body.password){
-					errors.push("Invalid password.");
+				if(!bcrypt.compareSync(req.body.password, user.password)){
+					errors.push("Invalid email or password.");
 					return res.status(401).json({errors: errors})
 				}
 				else{
-				console.log('success')
 					return res.json(user);
 				}
 			}
