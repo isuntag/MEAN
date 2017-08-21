@@ -2,7 +2,7 @@
 <html>
 <body>
     <div class="container">
-        <form class="form-horizontal" method="post">
+        <form class="form-horizontal" method="post" #loginForm="ngForm" (submit)="login()">
             <div class="form-group">
                 <label class="control-label col-sm-2" for="email">Email:</label>
                 <div class="col-sm-10">
@@ -40,7 +40,7 @@
                     class="btn btn-default"
                     type="submit"
                     value="Register"
-                    [disabled]="registerForm.invalid || user.passwordConfirm != user.password"
+                    [disabled]="loginForm.invalid"
                     >
                 </div>
             </div>

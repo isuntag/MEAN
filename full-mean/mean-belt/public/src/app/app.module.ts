@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { RegisterFormComponent } from './login/register-form/register-form.component';
+import { UserService } from './user.service'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { RegisterFormComponent } from './login/register-form/register-form.compo
     HttpModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+      UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../classes/user';
+import { UserService } from '../../user.service';
+import { Routes, Router } from '@angular/router'
 
 @Component({
   selector: 'app-register-form',
@@ -9,13 +11,18 @@ import { User } from '../../classes/user';
 export class RegisterFormComponent implements OnInit {
     user: User = new User();
     currentUser = null;
-  constructor() { }
+  constructor(private _us: UserService, private _router: Router) { }
 
   ngOnInit() {
   }
   register() {
-      this.currentUser = this.user;
-      console.log(this.currentUser);
-      this.user = new User();
+      this._us.addUser(this.user)
+      .then(response => {
+          console.log(`added ${response}`); this._router.navigateByUrl('/home')
+      })
+      .catch(err => console.log(err));
+    //   this.currentUser = this.user;
+    //   console.log(this.currentUser);
+    //   this.user = new User();
   }
 }

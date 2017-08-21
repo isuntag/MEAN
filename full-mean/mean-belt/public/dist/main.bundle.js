@@ -123,6 +123,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_login_form_login_form_component__ = __webpack_require__("../../../../../src/app/login/login-form/login-form.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__login_register_form_register_form_component__ = __webpack_require__("../../../../../src/app/login/register-form/register-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__user_service__ = __webpack_require__("../../../../../src/app/user.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -130,6 +131,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -160,7 +162,9 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */]
         ],
-        providers: [],
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_10__user_service__["a" /* UserService */]
+        ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -272,7 +276,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/login/login-form/login-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n<body>\n    <div class=\"container\">\n        <form class=\"form-horizontal\" method=\"post\">\n            <div class=\"form-group\">\n                <label class=\"control-label col-sm-2\" for=\"email\">Email:</label>\n                <div class=\"col-sm-10\">\n                    <input\n                    class=\"form-control\"\n                    type=\"email\"\n                    name=\"email\"\n                    required\n                    [(ngModel)]=\"user.email\"\n                    #email=\"ngModel\"\n                    pattern=\"^[_a-z0-9]+(\\.[_a-z0-9]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$\"\n                    >\n                    <div class=\"alert alert-danger fade in\" *ngIf=\"user.email.length < 1 || email.invalid\">\n                        <span *ngIf=\"user.email.length < 1\">Email is required.</span>\n                        <span *ngIf=\"user.email.length >= 1\">Email is invalid.</span>\n                    </div>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"control-label col-sm-2\" for=\"password\">Password:</label>\n                <div class=\"col-sm-10\">\n                    <input\n                    class=\"form-control\"\n                    type=\"password\"\n                    name=\"password\"\n                    [(ngModel)]=\"user.password\"\n                    #password=\"ngModel\"\n                    >\n                    <div class=\"alert alert-danger fade in\" *ngIf=\"user.password.length < 1\">Password is required.</div>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <div class=\"col-sm-offset-2 col-sm-10\">\n                    <input\n                    class=\"btn btn-default\"\n                    type=\"submit\"\n                    value=\"Register\"\n                    [disabled]=\"registerForm.invalid || user.passwordConfirm != user.password\"\n                    >\n                </div>\n            </div>\n        </form>\n    </div>\n</body>\n</html>\n"
+module.exports = "<!DOCTYPE html>\n<html>\n<body>\n    <div class=\"container\">\n        <form class=\"form-horizontal\" method=\"post\" #loginForm=\"ngForm\" (submit)=\"login()\">\n            <div class=\"form-group\">\n                <label class=\"control-label col-sm-2\" for=\"email\">Email:</label>\n                <div class=\"col-sm-10\">\n                    <input\n                    class=\"form-control\"\n                    type=\"email\"\n                    name=\"email\"\n                    required\n                    [(ngModel)]=\"user.email\"\n                    #email=\"ngModel\"\n                    pattern=\"^[_a-z0-9]+(\\.[_a-z0-9]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$\"\n                    >\n                    <div class=\"alert alert-danger fade in\" *ngIf=\"user.email.length < 1 || email.invalid\">\n                        <span *ngIf=\"user.email.length < 1\">Email is required.</span>\n                        <span *ngIf=\"user.email.length >= 1\">Email is invalid.</span>\n                    </div>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"control-label col-sm-2\" for=\"password\">Password:</label>\n                <div class=\"col-sm-10\">\n                    <input\n                    class=\"form-control\"\n                    type=\"password\"\n                    name=\"password\"\n                    [(ngModel)]=\"user.password\"\n                    #password=\"ngModel\"\n                    >\n                    <div class=\"alert alert-danger fade in\" *ngIf=\"user.password.length < 1\">Password is required.</div>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <div class=\"col-sm-offset-2 col-sm-10\">\n                    <input\n                    class=\"btn btn-default\"\n                    type=\"submit\"\n                    value=\"Register\"\n                    [disabled]=\"loginForm.invalid\"\n                    >\n                </div>\n            </div>\n        </form>\n    </div>\n</body>\n</html>\n"
 
 /***/ }),
 
@@ -281,6 +285,7 @@ module.exports = "<!DOCTYPE html>\n<html>\n<body>\n    <div class=\"container\">
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__classes_user__ = __webpack_require__("../../../../../src/app/classes/user.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginFormComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -292,10 +297,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var LoginFormComponent = (function () {
     function LoginFormComponent() {
+        this.user = new __WEBPACK_IMPORTED_MODULE_1__classes_user__["a" /* User */]();
+        this.currentUser = null;
     }
     LoginFormComponent.prototype.ngOnInit = function () {
+    };
+    LoginFormComponent.prototype.login = function () {
+        this.currentUser = this.user;
+        console.log(this.currentUser);
+        this.user = new __WEBPACK_IMPORTED_MODULE_1__classes_user__["a" /* User */]();
     };
     return LoginFormComponent;
 }());
@@ -404,6 +417,8 @@ module.exports = "<!DOCTYPE html>\n<html>\n<body>\n    <div class=\"container\">
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__classes_user__ = __webpack_require__("../../../../../src/app/classes/user.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_service__ = __webpack_require__("../../../../../src/app/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterFormComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -416,17 +431,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var RegisterFormComponent = (function () {
-    function RegisterFormComponent() {
+    function RegisterFormComponent(_us, _router) {
+        this._us = _us;
+        this._router = _router;
         this.user = new __WEBPACK_IMPORTED_MODULE_1__classes_user__["a" /* User */]();
         this.currentUser = null;
     }
     RegisterFormComponent.prototype.ngOnInit = function () {
     };
     RegisterFormComponent.prototype.register = function () {
-        this.currentUser = this.user;
-        console.log(this.currentUser);
-        this.user = new __WEBPACK_IMPORTED_MODULE_1__classes_user__["a" /* User */]();
+        var _this = this;
+        this._us.addUser(this.user)
+            .then(function (response) {
+            console.log("added " + response);
+            _this._router.navigateByUrl('/home');
+        })
+            .catch(function (err) { return console.log(err); });
+        //   this.currentUser = this.user;
+        //   console.log(this.currentUser);
+        //   this.user = new User();
     };
     return RegisterFormComponent;
 }());
@@ -436,10 +462,59 @@ RegisterFormComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/login/register-form/register-form.component.html"),
         styles: [__webpack_require__("../../../../../src/app/login/register-form/register-form.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__user_service__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _b || Object])
 ], RegisterFormComponent);
 
+var _a, _b;
 //# sourceMappingURL=register-form.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/user.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var UserService = (function () {
+    function UserService(_http) {
+        this._http = _http;
+    }
+    UserService.prototype.addUser = function (user) {
+        return this._http.post('/api/users', user)
+            .map(function (response) { return response.json(); })
+            .toPromise();
+    };
+    return UserService;
+}());
+UserService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+], UserService);
+
+var _a;
+//# sourceMappingURL=user.service.js.map
 
 /***/ }),
 
