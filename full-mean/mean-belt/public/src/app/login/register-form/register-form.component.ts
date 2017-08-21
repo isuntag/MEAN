@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../classes/user';
 import { UserService } from '../../user.service';
-import { Routes, Router } from '@angular/router'
+import { Routes, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -20,7 +20,7 @@ export class RegisterFormComponent implements OnInit {
       .then(response => {
           console.log(`added ${response}`); this._router.navigateByUrl('/home')
       })
-      .catch(err => console.log(err));
+      .catch(error => console.log(error));
     //   this.currentUser = this.user;
     //   console.log(this.currentUser);
     //   this.user = new User();

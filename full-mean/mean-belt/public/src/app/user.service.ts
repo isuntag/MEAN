@@ -13,4 +13,9 @@ export class UserService {
       .map((response: Response) => response.json())
       .toPromise()
   }
+  login(user) {
+      return this._http.post(`/api/users/${user.email}`, user)
+      .map((response: Response) => response.json())
+      .toPromise()
+  }
 }
