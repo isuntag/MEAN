@@ -7,16 +7,19 @@ module.exports = {
 		User.find({email:req.body.email}, function(err,user){
 			if(user.length > 0){
 				errors.push("Email already exists.");
-				return res.json(err, errors)
+				console.log(`errors ${errors}`)
+				return res.status(400).json({errors: errors})
 			}
 			else{
 				let newUser = new User(req.body);
 				newUser.save(function(err){
 					if(err){
 						errors.push(err);
-						return res.json(err, errors);
+						console.log(`errors ${errors}`)
+						return res.status(400).json({errors: errors});
 					}
 					else {
+						console.log(`created ${newUser}`)
 						return res.json(newUser);
 					}
 				})
