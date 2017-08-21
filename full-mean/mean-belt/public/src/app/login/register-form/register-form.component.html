@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="container">
+        <form class="form-horizontal" method="post" #registerForm="ngForm" (submit)="register()">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="firstName">First Name:</label>
+                <div class="col-sm-10">
+                    <input
+                    class="form-control"
+                    type="text"
+                    name="firstName"
+                    required
+                    minlength="3"
+                    [(ngModel)]="user.firstName"
+                    #firstName="ngModel"
+                    >
+                    <div class="alert alert-danger fade in" *ngIf="user.firstName.length < 1">First Name is required.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="lastName">Last Name:</label>
+                <div class="col-sm-10">
+                    <input
+                    class="form-control"
+                    type="text"
+                    name="lastName"
+                    required
+                    minlength="3"
+                    [(ngModel)]="user.lastName"
+                    #lastName="ngModel"
+                    >
+                    <div class="alert alert-danger fade in" *ngIf="user.lastName.length < 1">Last Name is required.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Email:</label>
+                <div class="col-sm-10">
+                    <input
+                    class="form-control"
+                    type="email"
+                    name="email"
+                    required
+                    [(ngModel)]="user.email"
+                    #email="ngModel"
+                    pattern="^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"
+                    >
+                    <div class="alert alert-danger fade in" *ngIf="user.email.length < 1 || email.invalid">
+                        <span *ngIf="user.email.length < 1">Email is required.</span>
+                        <span *ngIf="user.email.length >= 1">Email is invalid.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="age">Age:</label>
+                <div class="col-sm-10">
+                    <input
+                    class="form-control"
+                    type="number"
+                    name="age"
+                    required
+                    minlength="3"
+                    [(ngModel)]="user.age"
+                    #age="ngModel"
+                    >
+                    <div class="alert alert-danger fade in" *ngIf="user.age < 1">Age is required.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="password">Password:</label>
+                <div class="col-sm-10">
+                    <input
+                    class="form-control"
+                    type="password"
+                    name="password"
+                    [(ngModel)]="user.password"
+                    #password="ngModel"
+                    >
+                    <div class="alert alert-danger fade in" *ngIf="user.password.length < 1">Password is required.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="passwordConfirm">Password Confirmation:</label>
+                <div class="col-sm-10">
+                    <input
+                    class="form-control"
+                    type="password"
+                    name="passwordConfirm"
+                    [(ngModel)]="user.passwordConfirm"
+                    #passwordConfirm="ngModel"
+                    >
+                    <div class="alert alert-danger fade in" *ngIf="user.passwordConfirm.length < 1 || user.passwordConfirm != user.password">
+                        <span *ngIf="user.passwordConfirm.length < 1">Password Confirmation is required.</span>
+                        <span *ngIf="user.passwordConfirm.length >= 1">Passwords do not match.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input
+                    class="btn btn-default"
+                    type="submit"
+                    value="Register"
+                    [disabled]="registerForm.invalid || user.passwordConfirm != user.password"
+                    >
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

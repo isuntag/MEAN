@@ -12,4 +12,7 @@ mongodb/login_registration/node_modules
 angular/myFirstAngularApp/node_modules
 angular/dojo-mail/node_modules
 angular/barcode/node_modules
-full-mean/anonymous-notes/node_modules
+full-mean/mean-bikes/node_modules
+full-mean/mean-belt/node_modules
+full-mean/mean-bikes/public/node_modules
+full-mean/mean-belt/public/node_modules

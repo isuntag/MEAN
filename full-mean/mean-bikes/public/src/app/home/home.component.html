@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="botd">
+        Bike of the day
+    </div>
+    <div class="login">
+        <form #loginForm="ngForm" method="post" (submit)="login()">
+            <div class="formInput">
+                *Email <input
+                type="text"
+                name="email"
+                required
+                [(ngModel)]="loginuser.email"
+                #email = "ngModel"
+                >
+            </div>
+            <div class="formInput">
+                *Password <input
+                type="password"
+                name="password"
+                required
+                [(ngModel)]="loginuser.password"
+                #password = "ngModel"
+                >
+            </div>
+            <div class="formInput">
+                <input type="submit" value="Login" [disabled]="loginForm.invalid">
+            </div>
+        </form>
+    </div>
+    <div class="registration">
+        <form #registerForm="ngForm" method="post" (submit)="register()">
+            <div class="formInput">
+                *First Name <input
+                type="text"
+                name="firstName"
+                required
+                [(ngModel)]="registeruser.firstName"
+                #firstName="ngModel"
+                >
+            </div>
+            <div class="formInput">
+                *Last Name <input
+                type="text"
+                name="lastName"
+                required
+                [(ngModel)]="registeruser.lastName"
+                #lastName="ngModel"
+                >
+            </div>
+            <div class="formInput">
+                *Email <input
+                type="text"
+                name="email"
+                required
+                [(ngModel)]="registeruser.email"
+                #email="ngModel"
+                >
+            </div>
+            <div class="formInput">
+                *Password <input
+                type="password" name="password"
+                required
+                [(ngModel)]="registeruser.password"
+                #password="ngModel"
+                minlength="8"
+                >
+                <div class="error" *ngIf="password.invalid">
+                    Password must be at least 8 characters long.
+                </div>
+            </div>
+
+            <div class="formInput">
+                *Password Confirmation <input type="password" name="passwordConfirm"
+                required
+                [(ngModel)]="registeruser.passwordConfirm"
+                #passwordConfirm="ngModel"
+                >
+            </div>
+            <div class="formInput">
+                <input type="submit" value="Register" [disabled]="registerForm.invalid">
+            </div>
+        </form>
+    </div>
+</div>

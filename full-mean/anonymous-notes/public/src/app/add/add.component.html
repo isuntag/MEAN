@@ -1,9 +1,0 @@
-<form #form="ngForm" (submit)="addNote()">
-  Note: <input
-  type="text"
-  name="note" 
-  required
-  minlength="3"
-  [(ngModel)]="note">
-  <input type="submit" value="Add Note" [disabled]="form.invalid">
-</form>
