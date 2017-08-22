@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Q&A</h1>
+    <p *ngIf='loginError'>{{loginError}}</p>
+    <form #form="ngForm" method="post" (submit)="onSubmit()">
+        Name: <input
+        type="text"
+        name="name"
+        placeholder="Name"
+        required
+        [(ngModel)]="user.name"
+        #name="ngModel">
+        <input type="submit" value="Enter">
+    </form>
+</div>

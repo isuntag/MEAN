@@ -1,0 +1,7 @@
+<a [routerLink]="['']">Home</a> <br>
+{{question | json}}
+<div>
+    <h2>Answers</h2>
+<div *ngFor="let answer of answers">
+    {{answer | json }} <button type="button" (click)="like(answer._id, question._id)">Like</button>
+</div>

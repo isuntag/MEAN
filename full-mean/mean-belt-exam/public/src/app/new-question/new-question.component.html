@@ -1,0 +1,16 @@
+<a [routerLink]="['']">Home</a>
+Logout??
+<h1>New Question</h1>
+<form #form="ngForm" method="post" (submit)="onSubmit()">
+    Question: <textarea
+    name="content"
+    required
+    [(ngModel)]="question.content"
+    #content="ngModel"></textarea><br>
+    Description: <textarea
+    name="description"
+    [(ngModel)]="question.description"
+    #description="ngModel"></textarea><br>
+    <button type="button" name="clear" (click)="clear()">Clear</button>
+    <input type="submit" value="Enter">
+</form>

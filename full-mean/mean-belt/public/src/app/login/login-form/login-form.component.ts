@@ -11,6 +11,7 @@ import { Routes, Router } from '@angular/router';
 export class LoginFormComponent implements OnInit {
     user: User = new User();
     currentUser = null;
+    loginError = "";
     constructor(private _us: UserService, private _router: Router) { }
 
     ngOnInit() {
@@ -20,9 +21,6 @@ export class LoginFormComponent implements OnInit {
         .then(response => {
             this._router.navigateByUrl('/home')
         })
-        .catch(err => console.warn(err));
-        // this.currentUser = this.user;
-        // console.log(this.currentUser);
-        // this.user = new User();
+        .catch(err => {this.loginError = 'Incorrect email or password.'});
     }
 }

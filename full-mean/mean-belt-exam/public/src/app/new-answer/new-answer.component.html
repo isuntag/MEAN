@@ -1,0 +1,17 @@
+<a [routerLink]="['']">Home</a> <a [routerLink]="['/question',question._id]">Go back to question</a>
+{{question.content}}
+{{question.description}}
+
+<form #form="ngForm" method="post" (submit)="onSubmit()">
+    Your Answer: <textarea
+    name="content"
+    required
+    [(ngModel)]="answer.content"
+    #content="ngModel"></textarea><br>
+    Supporting Details (optional): <textarea
+    name="support"
+    [(ngModel)]="answer.support"
+    #support="ngModel"></textarea><br>
+    <button type="button" name="clear" (click)="clear()">Clear</button>
+    <input type="submit" value="Enter">
+</form>

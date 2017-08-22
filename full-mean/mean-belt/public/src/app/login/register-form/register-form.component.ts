@@ -10,17 +10,19 @@ import { Routes, Router } from '@angular/router';
 })
 export class RegisterFormComponent implements OnInit {
     user: User = new User();
-    currentUser = null;
+    registerError = "";
   constructor(private _us: UserService, private _router: Router) { }
 
   ngOnInit() {
   }
   register() {
       this._us.addUser(this.user)
-      .then(response => {
-          console.log(`added ${response}`); this._router.navigateByUrl('/home')
+      .then(response => {this._router.navigateByUrl('/home')
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+          console.error(error);
+          this.registerError = 'Error registering';
+      });
     //   this.currentUser = this.user;
     //   console.log(this.currentUser);
     //   this.user = new User();

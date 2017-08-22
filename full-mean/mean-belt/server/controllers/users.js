@@ -20,7 +20,6 @@ module.exports = {
 						return res.status(400).json({errors: errors});
 					}
 					else {
-						console.log(newUser.password);
 						return res.json(newUser);
 					}
 				})
@@ -31,10 +30,8 @@ module.exports = {
 	login:function(req,res){
 		let errors = [];
 		User.findOne({email:req.body.email}, function(err, user) {
-			console.log(user.password);
 			if(err){
 				errors.push("Invalid email or password.");
-				console.log('errors')
 				return res.status(400).json({errors:errors})
 			}
 			else{

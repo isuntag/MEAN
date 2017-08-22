@@ -1,0 +1,11 @@
+<p *ngIf="error">{{ error._body }}</p>
+<form #form="ngForm" (submit)="login()">
+    Name: <input
+    type="text"
+    name="name"
+    required
+    #name="ngModel"
+    [(ngModel)]="user.name"
+    >
+    <input type="submit" value="Login" [disabled]="form.invalid">
+</form>

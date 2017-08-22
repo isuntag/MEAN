@@ -2,6 +2,7 @@
 <html>
 <body>
     <div class="container">
+        <p *ngIf='registerError'>{{registerError}}</p>
         <form class="form-horizontal" method="post" #registerForm="ngForm" (submit)="register()">
             <div class="form-group">
                 <label class="control-label col-sm-2" for="firstName">First Name:</label>
