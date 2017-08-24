@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Add a thing:</h1>
+    <p *ngIf='error'>{{error}}</p>
+    <form #form="ngForm" (submit)="onSubmit()">
+        <div>
+            <label for="contenttitle">Title:</label>
+            <input
+            type="text"
+            name="contenttitle"
+            required
+            minlength="8"
+            [(ngModel)]="content.contenttitle"
+            #subject="ngModel"
+            >
+            <div *ngIf="content.contenttitle.invalid">
+                <span *ngIf="content.contenttitle.length < 1">Question is required.</span>
+                <span *ngIf="content.contenttitle.length >= 1 && content.contenttitle.length < 8">Question must be at least 8 characters.</span>
+            </div>
+        </div>
+        <div>
+            <input
+            type="submit"
+            value="Create"
+            [disabled]="form.invalid"
+            > <button [routerLink]="['/']">Go back</button>
+        </div>
+    </form>
+</div>

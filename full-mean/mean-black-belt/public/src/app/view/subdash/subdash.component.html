@@ -1,0 +1,28 @@
+
+<h1>
+subdash
+</h1>
+<button [routerLink]="['/']">Go Home</button>
+<p *ngIf="_content">{{_content | json}}</p>
+
+<a [routerLink]="['add']">Add subcontent</a>
+
+<div *ngIf="_content">
+<table>
+    <tr>
+        <th>User</th>
+        <th>Subcontent</th>
+        <th>Count</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let content of _content.contentsubs">
+        <td>{{content._username}}</td>
+        <td>{{content.subtitle}}</td>
+        <td>{{content.count}}</td>
+        <td>
+            <button (click)="upCount(content._id)">Up Count</button>
+            <button *ngIf="content._userID == user._id" (click)="deleteSub(content._id)">Delete</button>
+        </td>
+    </tr>
+</table>
+</div>

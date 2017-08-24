@@ -1,0 +1,5 @@
+<h1 *ngIf="user">Welcome {{ user.name }}!</h1>
+<a [routerLink]="['/create']"><button>Create a thing</button></a>
+<button name="logout" (click)="logout()">Logout</button>
+
+<app-contentdash *ngIf="user" [contents] = "contents" [userid]="user.id" (refresh)="refreshlist($event)"></app-contentdash>

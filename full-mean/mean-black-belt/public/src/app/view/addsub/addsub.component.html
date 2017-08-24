@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Put the contentsub here:</h1>
+    <p *ngIf='error'>{{error}}</p>
+    {{ contents | json }} {{user | json}}
+    <form #form="ngForm" (submit)="onSubmit()">
+        <div>
+            <label for="subtitle">SubTitle:</label>
+            <input
+            type="text"
+            name="subtitle"
+            required
+            minlength="3"
+            [(ngModel)]="sub.subtitle"
+            #subtitle="ngModel"
+            >
+            <div *ngIf="sub.subtitle.invalid">
+                <span *ngIf="sub.subtitle.length < 1">Subtitle is required.</span>
+                <span *ngIf="sub.subtitle.length >= 1 && sub.subtitle.length < 3">Subtitle must be at least 3 characters.</span>
+            </div>
+        </div>
+        <div>
+            <input
+            type="submit"
+            value="Create Sub"
+            [disabled]="form.invalid"
+            > <button [routerLink]="['/']">Go back</button>
+        </div>
+    </form>
+</div>

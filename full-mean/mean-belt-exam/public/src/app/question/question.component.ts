@@ -34,7 +34,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
       this.subscription2.unsubscribe();
     }
-    like(id, questionID) {
+    like(id) {
         this._qs.like(id)
         .then(response => {
             this._router.navigateByUrl('/'+this.questionID);

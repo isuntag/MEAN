@@ -1,0 +1,22 @@
+<form #searchForm="ngForm" (submit)="search()">
+    <input type="search" name="value" required #value="ngModel" [(ngModel)]="searchfield.value">
+    <input type="submit" value="Search" [disabled]="searchForm.invalid">
+    <button (click)="reset()">Show All</button>
+</form>
+
+<table>
+    <tr>
+        <th>User</th>
+        <th>Content Title</th>
+        <th>Sub Count</th>
+        <th>Date Posted</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let content of display_contents">
+        <td>{{ content._username }}</td>
+        <td><a [routerLink]="[content._id]">{{ content.contenttitle }}</a></td>
+        <td>{{ content.contentsubs.length }}</td>
+        <td>{{ content.createdAt }}</td>
+        <td><button *ngIf="content._userID == userid" (click)="delete(content._id)">Delete</button></td>
+    </tr>
+</table>
